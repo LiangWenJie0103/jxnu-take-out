@@ -29,6 +29,8 @@
         <mybatis.spring>2.2.0</mybatis.spring>
         <mysql>8.0.30</mysql>
         <druid>1.2.1</druid>
+        <jjwt>0.9.1</jjwt>
+        <jaxb-api>2.3.1</jaxb-api>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +57,17 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb-api}</version>
             </dependency>
 
         </dependencies>

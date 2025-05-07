@@ -1,19 +1,24 @@
 package com.lwj.controller.admin;
 
+import com.lwj.constant.JwtClaimsConstant;
 import com.lwj.dto.EmployeeDTO;
 import com.lwj.dto.EmployeePageQueryDTO;
 import com.lwj.dto.PasswordEditDTO;
+import com.lwj.properties.JwtProperties;
 import com.lwj.result.PageResult;
 import com.lwj.service.EmployeeService;
 import com.lwj.dto.EmployeeLoginDTO;
 import com.lwj.entity.Employee;
 import com.lwj.result.Result;
+import com.lwj.utils.JwtUtil;
 import com.lwj.vo.EmployeeLoginVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController()
 @RequestMapping("/admin/employee")
@@ -21,6 +26,9 @@ import java.util.ArrayList;
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private JwtProperties jwtProperties;
 
     /**
      * 员工登录
@@ -32,11 +40,16 @@ public class EmployeeController {
         log.info("员工登录：{}", employeeLoginDTO);
         Employee employee = employeeService.login(employeeLoginDTO);
 
+        // 登录成功后，生成jwt令牌
+        Map<String, Object> claims =new HashMap<>();
+        claims.put(JwtClaimsConstant.EMP_ID, employee.getId());
+        String token = JwtUtil.createJWT(jwtProperties.getAdminSecretKey(), jwtProperties.getAdminTtl(), claims);
+
         EmployeeLoginVO employeeLoginVO = EmployeeLoginVO.builder()
                 .id(employee.getId())
                 .userName(employee.getUsername())
-                .token("i")
                 .name(employee.getName())
+                .token(token)
                 .build();
 
         return Result.success(employeeLoginVO);

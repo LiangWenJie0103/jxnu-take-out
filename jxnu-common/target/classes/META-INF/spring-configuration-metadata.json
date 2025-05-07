@@ -1,0 +1,44 @@
+{
+  "groups": [
+    {
+      "name": "jxnu.jwt",
+      "type": "com.lwj.properties.JwtProperties",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jxnu.jwt.admin-secret-key",
+      "type": "java.lang.String",
+      "description": "管理端员工生成jwt令牌相关配置",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    },
+    {
+      "name": "jxnu.jwt.admin-token-name",
+      "type": "java.lang.String",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    },
+    {
+      "name": "jxnu.jwt.admin-ttl",
+      "type": "java.lang.Long",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    },
+    {
+      "name": "jxnu.jwt.user-secret-key",
+      "type": "java.lang.String",
+      "description": "用户端微信用户生成jwt令牌相关配置",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    },
+    {
+      "name": "jxnu.jwt.user-token-name",
+      "type": "java.lang.String",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    },
+    {
+      "name": "jxnu.jwt.user-ttl",
+      "type": "java.lang.Long",
+      "sourceType": "com.lwj.properties.JwtProperties"
+    }
+  ],
+  "hints": []
+}
