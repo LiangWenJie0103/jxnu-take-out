@@ -17,11 +17,14 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!--spring-boot-starter包用于springboot初始化-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+
+        <!--jackson相关包，提供注释@JsonFormat：对java对象的日期时间转换为指定类型的json格式-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

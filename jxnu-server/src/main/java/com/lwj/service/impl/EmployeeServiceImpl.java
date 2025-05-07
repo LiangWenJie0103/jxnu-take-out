@@ -1,6 +1,7 @@
 package com.lwj.service.impl;
 
 import com.lwj.constant.MessageConstant;
+import com.lwj.context.BaseContext;
 import com.lwj.dto.EmployeeDTO;
 import com.lwj.dto.EmployeePageQueryDTO;
 import com.lwj.dto.PasswordEditDTO;
@@ -107,12 +108,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void newPassword(PasswordEditDTO passwordEditDTO) {
-        Employee employeeOld = employeeMapper.getById(passwordEditDTO.getEmpId());
+        Employee employeeOld = employeeMapper.getById(BaseContext.getCurrentId());
         if (!employeeOld.getPassword().equals(passwordEditDTO.getOldPassword())) {
             throw new BaseException(MessageConstant.PASSWORD_EDIT_FAILED);
         }
         Employee employeeNew = new Employee();
-        employeeNew.setId(passwordEditDTO.getEmpId());
+        employeeNew.setId(BaseContext.getCurrentId());
         employeeNew.setPassword(passwordEditDTO.getNewPassword());
         employeeMapper.update(employeeNew);
     }

@@ -17,6 +17,7 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!--spring-boot-starter包用于springboot初始化-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -31,7 +32,7 @@
             <artifactId>jaxb-api</artifactId>
         </dependency>
 
-        <!--支持配置属性类，yml文件中可以提示配置项-->
+        <!--支持配置properties属性类时，使用yml文件为属性类赋值时，可以提示配置类相关属性-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

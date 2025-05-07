@@ -29,36 +29,47 @@
         <mybatis.spring>2.2.0</mybatis.spring>
         <mysql>8.0.30</mysql>
         <druid>1.2.1</druid>
+        <redis>2.7.3</redis>
         <jjwt>0.9.1</jjwt>
         <jaxb-api>2.3.1</jaxb-api>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <!--使用lombok简化对象创建流程-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok}</version>
             </dependency>
 
+            <!--mybatis包-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring}</version>
             </dependency>
-
+            <!--mysql包-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql}</version>
             </dependency>
-
+            <!--使用druid作为数据库连接池-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid}</version>
             </dependency>
+            <!--使用redis数据库-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${redis}</version>
+            </dependency>
 
+            <!--JWT相关包，用于创建JWT令牌校验用户身份-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
